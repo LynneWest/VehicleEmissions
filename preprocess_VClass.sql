@@ -1,3 +1,4 @@
+--Combine redundant VClass values
 UPDATE vehicle
 SET VClass = 'Special Purpose Vehicle 2WD'
 WHERE VClass = 'Special Purpose Vehicles/2wd';
