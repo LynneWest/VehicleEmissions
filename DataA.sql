@@ -1,5 +1,4 @@
---Create view for vehicle emission question A
-CREATE VIEW VehicleEmissionsA AS
+--Select data to answer vehicle emission question A
 SELECT VClass, co2TailpipeGpm
 FROM vehicle
 WHERE fuelType2 IS NULL
