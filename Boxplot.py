@@ -11,8 +11,9 @@ conn_str = (
 cnxn = pyodbc.connect(conn_str)
 cur = cnxn.cursor()
 
-suv = cur.execute("SELECT co2TailpipeGpm FROM vehicle WHERE VClass='Sport Utility Vehicle';")
+cur.execute("SELECT * FROM dataA")
 data = np.array(cur.fetchall())
 
-plt.boxplot(data, showfliers=False, vert=False)
-plt.show()
+
+#plt.boxplot(data, showfliers=False, vert=False)
+#plt.show()
