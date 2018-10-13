@@ -11,11 +11,21 @@ conn_str = (
 cnxn = pyodbc.connect(conn_str)
 cur = cnxn.cursor()
 
-cur.execute("SELECT co2TailpipeGpm FROM vehicle WHERE VClass = 'Compact Cars'")
-data = np.array(cur.fetchall())
+cc = cur.execute("SELECT co2TailpipeGpm FROM vehicle WHERE VClass = 'Compact Cars'")
+cc = np.array(cc.fetchall())
+
+lc = cur.execute("SELECT co2TailpipeGpm FROM vehicle WHERE VClass = 'Large Cars'")
+lc = np.array(lc.fetchall())
+
+mc = cur.execute("SELECT co2Tailpipegpm FROM vehicle WHERE VClass = 'Midsize Cars'")
+mc = np.array(mc.fetchall())
+
+
+
+data = [cc,lc,mc]
 
 fig, ax1 = plt.subplots()
-label = ['Compact Cars']
-plt.boxplot(data, showfliers=False)
-ax1.set_xticklabels(label)
+label = ['Compact Cars','Large Cars','Midsize Cars']
+plt.boxplot(data, showfliers=False, vert=False)
+ax1.set_yticklabels(label)
 plt.show()
