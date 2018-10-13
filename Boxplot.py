@@ -1,4 +1,4 @@
-#Create boxplot to answer question A
+#Create boxplots to answer question A
 import pyodbc
 import matplotlib.pyplot as plt
 import numpy as np
@@ -6,7 +6,7 @@ import numpy as np
 conn_str = (
     r'DRIVER={SQL Server};'
     r'SERVER=DESKTOP-DK5R027\SQLEXPRESS;'
-    r'DATABASE=VehEm;'
+    r'DATABASE=VClassCO2;'
     r'Trusted_Connection=yes;' )
 cnxn = pyodbc.connect(conn_str)
 cur = cnxn.cursor()
@@ -20,30 +20,32 @@ query_string = """SELECT co2TailpipeGpm
                 AND fuelType1 != 'Diesel' 
                 AND VClass ="""
 
-cc = cur.execute(query_string + "'Compact Cars';")
+car = cur.execute(query_string + "'Car';")
+car = np.array(car.fetchall())
+
+cc = cur.execute(query_string + "'Compact Car';")
 cc = np.array(cc.fetchall())
-
-lc = cur.execute(query_string + "'Large Cars';")
-lc = np.array(lc.fetchall())
-
-mc = cur.execute(query_string + "'Midsize Cars';")
-mc = np.array(mc.fetchall())
-
-minc = cur.execute(query_string + "'Minicompact Cars';")
-minc = np.array(minc.fetchall())
-
-spt = cur.execute(query_string + "'Small Pickup Truck';")
-spt = np.array(spt.fetchall())
 
 suv = cur.execute(query_string + "'Sport Utility Vehicle';")
 suv = np.array(suv.fetchall())
 
+sw = cur.execute(query_string + "'Station Wagon';")
+sw = np.array(sw.fetchall())
+
+truck = cur.execute(query_string + "'Truck';")
+truck = np.array(truck.fetchall())
+
+van = cur.execute(query_string + "'Van';")
+van = np.array(van.fetchall())
 
 
-data = [cc,lc,mc, minc, spt, suv]
+
+
+
+data = [car, cc, suv, sw, truck, van]
 
 fig, ax1 = plt.subplots()
-label = ['Compact Cars','Large Cars','Midsize Cars','Minicompact Cars','Small Pickup Trucks','Sport Utility Vehicle']
+label = ['Cars', 'Compact Cars', 'Sport Utility Vehicles', 'Station Wagons', 'Trucks', 'Vans']
 plt.boxplot(data, vert=False)
 ax1.set_yticklabels(label)
 plt.show()
