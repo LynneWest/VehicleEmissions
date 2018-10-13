@@ -11,7 +11,14 @@ conn_str = (
 cnxn = pyodbc.connect(conn_str)
 cur = cnxn.cursor()
 
-query_string = "SELECT co2TailpipeGpm FROM vehicle WHERE fuelType2 IS NULL AND atvType IS NULL AND fuelType1 != 'Natural Gas' AND fuelType1 != 'Electricity' AND fuelType1 != 'Diesel' AND VClass ="
+query_string = """SELECT co2TailpipeGpm 
+                FROM vehicle 
+                WHERE fuelType2 IS NULL 
+                AND atvType IS NULL 
+                AND fuelType1 != 'Natural Gas' 
+                AND fuelType1 != 'Electricity' 
+                AND fuelType1 != 'Diesel' 
+                AND VClass ="""
 
 cc = cur.execute(query_string + "'Compact Cars';")
 cc = np.array(cc.fetchall())
