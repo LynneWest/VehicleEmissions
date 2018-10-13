@@ -35,12 +35,15 @@ minc = np.array(minc.fetchall())
 spt = cur.execute(query_string + "'Small Pickup Truck';")
 spt = np.array(spt.fetchall())
 
+suv = cur.execute(query_string + "'Sport Utility Vehicle';")
+suv = np.array(suv.fetchall())
 
 
-data = [cc,lc,mc, minc, spt]
+
+data = [cc,lc,mc, minc, spt, suv]
 
 fig, ax1 = plt.subplots()
-label = ['Compact Cars','Large Cars','Midsize Cars','Minicompact Cars','Small Pickup Trucks']
+label = ['Compact Cars','Large Cars','Midsize Cars','Minicompact Cars','Small Pickup Trucks','Sport Utility Vehicle']
 plt.boxplot(data, vert=False)
 ax1.set_yticklabels(label)
 plt.show()
