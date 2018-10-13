@@ -11,21 +11,29 @@ conn_str = (
 cnxn = pyodbc.connect(conn_str)
 cur = cnxn.cursor()
 
-cc = cur.execute("SELECT co2TailpipeGpm FROM vehicle WHERE VClass = 'Compact Cars'")
+query_string = "SELECT co2TailpipeGpm FROM vehicle WHERE fuelType2 IS NULL AND atvType IS NULL AND fuelType1 != 'Natural Gas' AND fuelType1 != 'Electricity' AND fuelType1 != 'Diesel' AND VClass ="
+
+cc = cur.execute(query_string + "'Compact Cars';")
 cc = np.array(cc.fetchall())
 
-lc = cur.execute("SELECT co2TailpipeGpm FROM vehicle WHERE VClass = 'Large Cars'")
+lc = cur.execute(query_string + "'Large Cars';")
 lc = np.array(lc.fetchall())
 
-mc = cur.execute("SELECT co2Tailpipegpm FROM vehicle WHERE VClass = 'Midsize Cars'")
+mc = cur.execute(query_string + "'Midsize Cars';")
 mc = np.array(mc.fetchall())
 
+minc = cur.execute(query_string + "'Minicompact Cars';")
+minc = np.array(minc.fetchall())
+
+spt = cur.execute(query_string + "'Small Pickup Truck';")
+spt = np.array(spt.fetchall())
 
 
-data = [cc,lc,mc]
+
+data = [cc,lc,mc, minc, spt]
 
 fig, ax1 = plt.subplots()
-label = ['Compact Cars','Large Cars','Midsize Cars']
-plt.boxplot(data, showfliers=False, vert=False)
+label = ['Compact Cars','Large Cars','Midsize Cars','Minicompact Cars','Small Pickup Trucks']
+plt.boxplot(data, vert=False)
 ax1.set_yticklabels(label)
 plt.show()
