@@ -2,6 +2,8 @@
 import pyodbc
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 
 conn_str = (
     r'DRIVER={SQL Server};'
@@ -38,11 +40,22 @@ van = np.array(van.fetchall())
 data = [car, cc, suv, truck, van]
 
 fig, ax = plt.subplots()
+box = ax.boxplot(data, vert=False, patch_artist=True, showfliers=False, whis=10)
+
 label = ['Cars', 'Compact Cars', 'Sport Utility Vehicles', 'Trucks', 'Vans']
-box = plt.boxplot(data, vert=False, patch_artist=True)
-plt.setp(box['boxes'], facecolor='lightblue')
-plt.setp(box['fliers'], markersize=3)
-plt.setp(box['medians'], color='darkblue')
+
+box_colors = ['thistle', 'mistyrose','lightskyblue', 'mediumaquamarine', 'peachpuff']
+for patch, color in zip(box['boxes'], box_colors):
+    patch.set_facecolor(color)
+
+plt.setp(box['medians'], color='red')
+plt.setp(box['caps'], color='blue')
+
+lines = [Line2D([0], [0], color='red', label='median'),
+Patch(facecolor='white',edgecolor='black', label='25% to 75%'),
+Line2D([0], [0], color='blue', label='min and max values')]
+
+plt.legend(handles=lines)
 ax.set_xlim(100,1200)
 plt.xticks([200,300,400,500,600,700,800,900,1000,1100])
 ax.xaxis.grid(True, color='lightgrey')
