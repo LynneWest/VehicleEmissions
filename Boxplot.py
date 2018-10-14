@@ -42,7 +42,7 @@ data = [car, cc, suv, truck, van]
 fig, ax = plt.subplots()
 box = ax.boxplot(data, vert=False, patch_artist=True, showfliers=False, whis=10)
 
-label = ['Cars', 'Compact Cars', 'Sport Utility Vehicles', 'Trucks', 'Vans']
+label = ['Cars', 'Compact Cars', 'SUVs', 'Trucks', 'Vans']
 
 box_colors = ['thistle', 'mistyrose','lightskyblue', 'mediumaquamarine', 'peachpuff']
 for patch, color in zip(box['boxes'], box_colors):
