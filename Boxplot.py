@@ -53,7 +53,7 @@ plt.setp(box['caps'], color='blue')
 
 lines = [Line2D([0], [0], color='red', label='median'),
 Patch(facecolor='white',edgecolor='black', label='25% to 75%'),
-Line2D([0], [0], color='blue', label='min and max values')]
+Line2D([0], [0], color='blue', label='min and max')]
 
 plt.legend(handles=lines)
 ax.set_xlim(100,1200)
