@@ -1,0 +1,207 @@
+:root {
+	--fontA: 'Sarina', cursive; /* font-family: var(--fontA); */
+	--fontB: 'spinnaker', arial; /* font-family: var(--fontB); */
+	--colorA: rgb(232,222,212); /* background-color: var(--colorA); #f6f1e9 */
+	--colorB: rgb(110,114,117);  /* background-color: var(--colorB); */
+	--colorC: rgb(191,191,193);  /* background-color: var(--colorC); */
+	--colorD: #e7e5e6;  /* background-color: var(--colorD); */
+}
+
+.this-nav a{
+	color:black;
+	font-family: var(--fontB);
+	text-shadow: none !important;
+}
+
+.this-nav a:visited {	
+	background-color: var(--colorC) !important;
+}
+
+.this-nav a:hover {	
+	background-color: var(--colorA) !important;
+}
+
+.in {
+	background-color: var(--colorC);
+	transition: background-color .4s;
+}
+
+.navbar-brand {
+	max-height: 75px;
+	padding: 0;
+	opacity: 0;
+}
+
+.scroll-nav .navbar-brand {
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	-moz-transition: opacity 2s;
+	-ms-transition: opacity 2s;
+	-o-transition: opacity 2s;
+	transition: opacity 2s;
+}
+.scroll-nav {
+	border-bottom: none; 
+	background-color: var(--colorC);
+	-webkit-transition: background-color 2s;
+	-moz-transition: background-color 2s;
+	-ms-transition: background-color 2s;
+	-o-transition: background-color 2s;
+	transition: background-color 2s;	
+}
+
+.lynneFo-img {
+	background-image: url("images/Data.jpg");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	position: relative;
+	height: 100%;
+}
+
+.lynneFo-text {
+	color: black;
+	padding: 2%;	
+}
+
+header h1 {
+	font-family: var(--fontA);
+	font-size: 40px;	
+	margin: 0;	
+}
+
+header p {
+	font-family: var(--fontB);
+	font-size: 15px;	
+	margin: 0;	
+}
+
+.body {
+	/* position: relative; */
+	background-color: white;
+}
+
+.body h1 {
+	font-family: var(--fontB);
+	font-size: 30px;
+	color: black;
+}
+
+.body p {
+	font-family: var(--fontB);
+	font-size: 16px;
+	line-height: 2;	
+}
+
+.white-space {
+	border-top: 40px solid white;	
+}
+
+.first-container {
+	border-left: 30px solid var(--colorB);
+	background-color: var(--colorA);	
+}
+
+.first-container .row {
+	background-color: var(--colorC);
+}
+
+.first-container div {	
+	font-family: var(--fontB);
+}
+
+.first-container a, a:visited, a:focus {
+	color: black;
+	text-decoration: none;
+}
+
+.first-container a:hover {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.second-container {
+	background-color: var(--colorD);
+}
+.second-container h1 {
+	border-top: 2px solid black;
+	padding-top: 5px;
+}
+
+.second-container img{
+	display: block;
+	max-width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 25px;
+}
+
+.bottom-border {
+	border-top: 2px solid black;
+	margin-bottom: 20px;
+}
+
+.third-div img {
+	max-width: 100%;	
+}
+
+.third-container {
+	background-color: var(--colorA);
+	padding: 0;
+}
+
+.third-container div {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.third-container a:hover {
+	text-decoration: none;
+}
+
+.third-container p {
+	padding: 10px;	
+}
+
+.third-container a {
+	font-weight: bold;
+}
+
+@media(max-width: 800px) {
+	header h1 {
+		font-size: 40px;
+	}	
+	header p {
+		font-size: 13px;
+	}
+	.second-container img{
+		max-width: 100%;
+	}		
+}
+
+@media(max-width: 520px) {	
+	header h1 {
+		font-size: 35px;
+	}	
+	header p {
+		font-size: 13px;
+	}		
+}
+
+@media(max-width: 350px) {
+	header h1 {
+		font-size: 25px;
+	}
+	header p {
+		font-size: 10px;
+	}
+	.second-container h3 {
+		font-size: 20px;
+		margin-bottom: 8px;	
+	}
+	.second-container p {
+		font-size: 14px;
+		margin-top: 8px;	
+	}
+}
+
