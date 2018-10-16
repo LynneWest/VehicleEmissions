@@ -1,4 +1,4 @@
-/* Stylesheet for vehicle class emissions project */
+/* Stylesheet for vehicle class emissions project*/
 
 :root {
 	--fontA: 'Sarina', cursive; /* font-family: var(--fontA); */
@@ -165,6 +165,10 @@ header p {
 	font-weight: bold;
 	color: black;
 	text-decoration: none;
+}
+
+.third-container a:hover {
+	text-decoration: underline;
 }
 
 @media(max-width: 800px) {
