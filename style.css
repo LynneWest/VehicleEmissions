@@ -111,7 +111,7 @@ header p {
 }
 
 .first-container a, a:visited, a:focus {
-	color: black;
+	color: black !important;
 	text-decoration: none;
 }
 
