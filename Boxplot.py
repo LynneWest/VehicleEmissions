@@ -62,7 +62,7 @@ Line2D([0], [0], color='red', label='median'),
 Line2D([0], [0], color='blue', label='min and max')]
 plt.legend(handles=lines)
 
-#Configure X and Y axes and title plot
+#Configure X and Y axes and title the plot
 ax.set_xlim(100,1200)
 plt.xticks([200,300,400,500,600,700,800,900,1000,1100])
 ax.xaxis.grid(True, color='lightgrey')
