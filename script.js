@@ -1,3 +1,5 @@
+// Script for vehicle class emissions project
+
 $(window).load(function()
 {	
 	var scrollPosition;
@@ -10,7 +12,7 @@ $(window).load(function()
 			return headerHeight;	
 	}	
 
-	$(document).scroll(function() 
+	function navBack()//change navbar background color based on scroll bar position
 	{
 		scrollPosition = $(document).scrollTop();	
 		var navH = $(".navbar").height();
@@ -23,12 +25,19 @@ $(window).load(function()
 		{
 			$(".navbar").removeClass("scroll-nav");			
 		}
+	}
+
+	$(document).scroll(function() 
+	{
+		navBack();
 	});
 
 	$(window).resize(function() //get header height when window is resized
 	{
 		getHeaderHeight()	
 	});
+
+	navBack();
 });
 	
 
