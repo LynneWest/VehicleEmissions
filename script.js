@@ -10,7 +10,11 @@ $(window).load(function()
 		headerHeight = $('header').outerHeight();		
 			
 			return headerHeight;	
-	}	
+	}
+	
+	$(function() {
+		$('body').removeClass('fade-out');
+	});
 
 	function navBack()//change navbar background color based on scroll bar position
 	{
